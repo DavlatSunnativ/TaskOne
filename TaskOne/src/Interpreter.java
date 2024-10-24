@@ -13,14 +13,14 @@ public class Interpreter {
                     throw new IllegalArgumentException("Invalid expression: not enough operands.");
                 }
 
-                Expression right = list.remove(list.size() - 1); // Simulate pop
-                Expression left = list.remove(list.size() - 1);  // Simulate pop
+                Expression right = list.remove(list.size() - 1); 
+                Expression left = list.remove(list.size() - 1); 
                 char operator = token.charAt(0);
                 Expression operation = new OperationExpression(left, right, operator);
-                list.add(operation); // Simulate push
+                list.add(operation); 
             } else {
                 Expression number = new NumberExpression(Integer.parseInt(token));
-                list.add(number); // Simulate push
+                list.add(number); 
             }
         }
 
@@ -28,7 +28,7 @@ public class Interpreter {
             throw new IllegalArgumentException("Invalid expression: missing operators or operands.");
         }
 
-        return list.remove(list.size() - 1).interpret(); // Return the final result
+        return list.remove(list.size() - 1).interpret(); 
     }
 
     private static boolean isOperator(String token) {
